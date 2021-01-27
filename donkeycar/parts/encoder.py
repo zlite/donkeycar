@@ -7,6 +7,8 @@ import re
 import time
 
 
+
+
 # The Arduino class is for a quadrature wheel or motor encoder that is being read by an offboard microcontroller
 # such as an Arduino or Teensy that is feeding serial data to the RaspberryPy or Nano via USB serial. 
 # The microcontroller should be flashed with this sketch (use the Arduino IDE to do that): https://github.com/zlite/donkeycar/tree/master/donkeycar/parts/encoder/encoder
