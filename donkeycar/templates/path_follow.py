@@ -63,12 +63,12 @@ def drive(cfg):
         if cfg.ODOM_TYPE == "gpio":
             pi = pigpio.pi()
             enc = PiPGIOEncoder(cfg.ODOM_PIN, pi)
-            V.add(enc, outputs=['enc/ticks'])
+            V.add(enc, outputs=['enc/ticks'], threaded=True)
             odom = OdomDist(mm_per_tick=cfg.MM_PER_TICK, debug=cfg.ODOM_DEBUG)
  
         if cfg.ODOM_TYPE == "arduino":
             enc = ArduinoEncoder()
-            V.add(enc, outputs=['enc/ticks'])
+            V.add(enc, outputs=['enc/ticks'], threaded=True)
             odom = OdomDist(mm_per_tick=cfg.MM_PER_TICK, debug=cfg.ODOM_DEBUG)
 
         V.add(odom, inputs=['enc/ticks', 'user/throttle'], outputs=['enc/dist_m', 'enc/vel_m_s', 'enc/delta_vel_m_s'])
@@ -260,7 +260,7 @@ def drive(cfg):
         print("Make sure your car is sitting at the origin of the path.")
         print("View web page and refresh. You should see your path.")
         print("Hit 'select' twice to change to ai drive mode.")
-        print("You can press the X button (e-stop) to stop the car at any time.")
+        print("You can press the X/A button (e-stop) to stop the car at any time.")
         print("Delete file", cfg.PATH_FILENAME, "and re-start")
         print("to record a new path.")
         print("###############################################################################")
@@ -275,7 +275,7 @@ def drive(cfg):
         print("Complete one circuit of your course.")
         print("When you have exactly looped, or just shy of the ")
         print("loop, then save the path (press %s)." % cfg.SAVE_PATH_BTN)
-        print("You can also erase a path with the Triangle button.")
+        print("You can also erase a path with the Triangle/Y button.")
         print("When you're done, close this process with Ctrl+C.")
         print("Place car exactly at the start. ")
         print("Then restart the car with 'python manage drive'.")

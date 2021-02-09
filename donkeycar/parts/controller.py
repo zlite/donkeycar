@@ -1281,13 +1281,12 @@ class XboxOneJoystickController(JoystickController):
         '''
 
         self.button_down_trigger_map = {
-            'a_button': self.toggle_mode,
             'b_button': self.toggle_manual_recording,
-            'x_button': self.erase_last_N_records,
-            'y_button': self.emergency_stop,
+            'y_button': self.erase_last_N_records,
+            'a_button': self.emergency_stop,
             'right_shoulder': self.increase_max_throttle,
             'left_shoulder': self.decrease_max_throttle,
-            'options': self.toggle_constant_throttle,
+            'options': self.toggle_mode,
         }
 
         self.axis_trigger_map = {
