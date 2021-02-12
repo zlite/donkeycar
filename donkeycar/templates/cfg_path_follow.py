@@ -111,7 +111,7 @@ MM_PER_TICK = 0.0605              # How much travel with a single tick, in mm. C
                                  # to print out the distance. Roll car over measured 1m and adjust until distance readout is correct 
 ODOM_TYPE = "arduino"             # arduino|gpio|astar
 # ODOM_PIN = 4                     # Which GPIO board mode pin to use as input, if you're measuring the encoder directly with the RPi
-ODOM_DEBUG = False                 # Write out values on vel and distance as it runs
+ODOM_DEBUG = True                 # Write out values on vel and distance as it runs
 # 
 # If using the Intel T265
 WHEEL_ODOM_CALIB = "calibration_odometry.json"
