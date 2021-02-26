@@ -37,6 +37,7 @@ class ArduinoEncoder(object):
         self.mm_per_tick = mm_per_tick
 
     def update(self):
+        global lasttick
         while self.on:
             input = ''
             while (self.ser.in_waiting > 0):   # read the serial port and see if there's any data there
